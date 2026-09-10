@@ -1,0 +1,19 @@
+:root {
+  --iris: #4d5ae5;
+  --ocean: #404bbf;
+  --slate: #434455;
+  --light-slate: #8e8f99;
+  --navy-blue: #2e2f42;
+  --white: #ffffff;
+  --cloud: #f4f4fd;
+  --dairy: #fcfcfc;
+  --cornflower: #e7e9fc;
+  --green: #31d0aa;
+
+  --border-radius: 0.25rem;
+  --font-family-base: 'Roboto', sans-serif;
+  --font-family-logo: 'Raleway', sans-serif;
+
+  --transition-duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

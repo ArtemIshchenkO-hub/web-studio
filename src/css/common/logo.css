@@ -1,0 +1,9 @@
+.logo {
+  text-transform: uppercase;
+  font-family: var(--font-family-logo);
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--navy-blue);
+  letter-spacing: 0.03em;
+  line-height: 1.33;
+}

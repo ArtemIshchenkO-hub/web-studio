@@ -1,0 +1,61 @@
+.button {
+  background-color: var(--iris);
+
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+
+  transition: background-color var(--transition-duration) var(--timing-function);
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--ocean);
+}
+
+.button-text {
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  font-weight: 500;
+
+  color: var(--white);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.5rem;
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 1.5rem;
+  background-color: var(--cornflower);
+
+  transition:
+    background-color var(--transition-duration) var(--timing-function),
+    border-color var(--transition-duration) var(--timing-function);
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+  background-color: var(--ocean);
+  border-color: var(--ocean);
+}
+
+.close-icon {
+  width: 0.5rem;
+  aspect-ratio: 1;
+  fill: var(--navy-blue);
+  transition: fill var(--transition-duration) var(--timing-function);
+}
+
+.close-modal-btn:hover .close-icon,
+.close-modal-btn:focus .close-icon {
+  fill: var(--white);
+}

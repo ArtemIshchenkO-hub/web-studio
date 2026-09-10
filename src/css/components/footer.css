@@ -1,0 +1,153 @@
+.footer {
+  background-color: var(--navy-blue);
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.footer-text-color {
+  color: var(--cloud);
+}
+
+.footer-content-container-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-content-container-left .logo {
+  align-self: center;
+}
+
+.footer-form-wrapper,
+.footer-socials-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  font-weight: 500;
+  align-items: center;
+}
+
+.footer-social-links-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-form-input {
+  border: 1px solid var(--white);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  width: 100%;
+
+  color: var(--white);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 2;
+  font-size: 0.75rem;
+
+  background-color: transparent;
+  outline: none;
+
+  transition: border-color var(--transition-duration) var(--timing-function);
+}
+
+.footer-form-input::placeholder {
+  color: var(--white);
+}
+
+.footer-form-input:focus {
+  border-color: var(--green);
+}
+
+.footer-form-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.5rem;
+  max-width: 10.31rem;
+
+  background-color: var(--iris);
+  color: var(--white);
+
+  transition: background-color var(--transition-duration) var(--timing-function);
+}
+
+.button-icon {
+  fill: var(--white);
+}
+
+.footer-form-btn:hover,
+.footer-form-btn:focus {
+  background-color: var(--green);
+}
+
+@media screen and (min-width: 768px) {
+  .footer .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4.5rem 1.5rem;
+
+    padding: 0 108px;
+  }
+
+  .footer-form-input {
+    width: 16.5rem;
+  }
+
+  .footer-content-container-left .logo {
+    align-self: flex-start;
+  }
+
+  .footer-content-container-left {
+    max-width: 16.5rem;
+  }
+
+  .footer-form-wrapper {
+    max-width: 28.31rem;
+  }
+
+  .footer-form {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .footer-content-container-left,
+  .footer-form-wrapper,
+  .footer-socials-container {
+    align-items: flex-start;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .footer.section {
+    padding: 6.25rem 0px;
+  }
+
+  .footer .container {
+    padding: 0 15px;
+    gap: 0;
+  }
+
+  .footer-content-container-left {
+    margin-right: 7.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-form-wrapper {
+    margin-left: auto;
+  }
+}

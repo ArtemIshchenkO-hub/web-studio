@@ -1,0 +1,224 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  background-color: rgba(46, 47, 66, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity var(--transition-duration) var(--timing-function),
+    visibility var(--transition-duration) var(--timing-function);
+}
+
+.overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 18rem;
+  max-height: calc(100vh - 2rem);
+
+  padding: 4.5rem 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--dairy);
+
+  box-shadow:
+    0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+
+  overflow-y: auto;
+  transform: scale(0.9);
+  transition: transform var(--transition-duration) var(--timing-function);
+}
+
+.overlay.is-open .modal {
+  transform: scale(1);
+}
+
+.modal-title {
+  color: var(--navy-blue);
+  font-weight: 500;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.modal-form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.modal-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.modal-label,
+.textarea,
+.modal-input {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+}
+
+.modal-label {
+  color: var(--light-slate);
+}
+
+.modal-input-wrap {
+  position: relative;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 0.5rem 2.375rem;
+
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: var(--border-radius);
+  color: var(--navy-blue);
+  background-color: transparent;
+
+  outline: none;
+  transition: border-color var(--transition-duration) var(--timing-function);
+}
+
+.textarea {
+  width: 100%;
+  height: 7.5rem;
+  padding: 0.5rem 1rem;
+
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: var(--border-radius);
+  color: var(--navy-blue);
+  background-color: transparent;
+
+  resize: none;
+  outline: none;
+  transition: border-color var(--transition-duration) var(--timing-function);
+}
+
+.textarea::placeholder {
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.modal-input:focus,
+.textarea:focus {
+  border-color: var(--iris);
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  fill: var(--navy-blue);
+  pointer-events: none;
+  transition: fill var(--transition-duration) var(--timing-function);
+}
+
+.modal-input:focus + .input-icon {
+  fill: var(--iris);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1rem;
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 0.125rem;
+
+  fill: var(--cloud);
+  transition:
+    background-color var(--transition-duration) var(--timing-function),
+    border-color var(--transition-duration) var(--timing-function);
+}
+
+.check-icon {
+  opacity: 0;
+  transition: opacity var(--transition-duration) var(--timing-function);
+}
+
+.checkbox-input:checked + .checkbox-label .checkbox-custom {
+  background-color: var(--ocean);
+  border-color: var(--ocean);
+}
+
+.checkbox-input:checked + .checkbox-label .check-icon {
+  opacity: 1;
+}
+
+.checkbox-input:focus-visible + .checkbox-label .checkbox-custom {
+  outline: 2px solid var(--iris);
+  outline-offset: 2px;
+}
+
+.checkbox-text {
+  color: var(--light-slate);
+  font-size: 0.75rem;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+}
+
+.checkbox-text-accent {
+  display: inline;
+  color: var(--iris);
+  text-decoration: underline;
+}
+
+.modal-button {
+  width: 10.56rem;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    max-width: 25.5rem;
+    padding: 4.5rem 1.5rem 1.5rem;
+  }
+}

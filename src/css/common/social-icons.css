@@ -1,0 +1,26 @@
+.social-icon {
+  fill: var(--cloud);
+}
+
+.social-icon-wpapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 40px;
+
+  background-color: var(--iris);
+  transition: background-color var(--transition-duration) var(--timing-function);
+}
+
+.social-icon-wpapper.hover-ocean:hover,
+.social-icon-wpapper.hover-ocean:focus {
+  background-color: var(--ocean);
+}
+
+.social-icon-wpapper.hover-green:hover,
+.social-icon-wpapper.hover-green:focus {
+  background-color: var(--green);
+}

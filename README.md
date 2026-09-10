@@ -1,2 +1,3 @@
 # web-studio
-Vanila landing
+
+Vanila landing page
