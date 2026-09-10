@@ -1,19 +1,40 @@
-<header class="header">
+<header class="header-section" id="header">
   <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
-        </svg>
-      </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
+    <a href="./index.html" class="logo"
+      ><span class="iris-accent">Web</span>Studio</a
+    >
+
+    <nav class="header-nav">
+      <ul class="header-nav-list">
+        <li>
+          <a href="#features" class="header-nav-link active">Features</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
+        <li>
+          <a href="#team" class="header-nav-link">Team</a>
+        </li>
+        <li>
+          <a href="#portfolio" class="header-nav-link">Portfolio</a>
         </li>
       </ul>
     </nav>
+    <address class="header-contacts">
+      <ul class="header-contacts-list">
+        <li>
+          <a href="mailto:info@devstudio.com" class="header-contact-link"
+            >info@devstudio.com</a
+          >
+        </li>
+        <li>
+          <a href="tel:+110001111111" class="header-contact-link"
+            >+11 (000) 111-11-11</a
+          >
+        </li>
+      </ul>
+    </address>
+    <button class="header-burger-menu" type="button">
+      <svg class="header-mobile-menu-icon" width="24" height="24">
+        <use href="./img/icons.svg#icon-menu"></use>
+      </svg>
+    </button>
   </div>
 </header>
