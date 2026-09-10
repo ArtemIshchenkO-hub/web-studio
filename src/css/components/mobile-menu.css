@@ -6,7 +6,9 @@
   visibility: hidden;
   pointer-events: none;
 
-  transition: opacity var(--transition-duration) var(--timing-function);
+  transition:
+    opacity var(--transition-duration) var(--timing-function),
+    visibility var(--transition-duration) var(--timing-function);
 }
 
 .mobile-menu-container {

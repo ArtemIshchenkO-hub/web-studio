@@ -44,6 +44,10 @@
   width: 100%;
 }
 
+.footer-form-input-wrapper {
+  width: 100%;
+}
+
 .footer-form-input {
   border: 1px solid var(--white);
   border-radius: var(--border-radius);
@@ -123,6 +127,11 @@
   .footer-form {
     flex-direction: row;
     gap: 1.5rem;
+  }
+
+  .footer-form-btn {
+    flex-shrink: 0;
+    align-self: flex-start;
   }
 
   .footer-content-container-left,

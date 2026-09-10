@@ -60,14 +60,18 @@
     </div>
     <div class="footer-form-wrapper">
       <p class="footer-text-color">Subscribe</p>
+
       <form class="footer-form">
-        <input
-          type="email"
-          name="email"
-          placeholder="E-mail"
-          class="footer-form-input"
-        />
-        <button type="submit" class="footer-form-btn">
+        <div class="footer-form-input-wrapper">
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            class="footer-form-input"
+          />
+          <p class="error-message"></p>
+        </div>
+        <button type="submit" class="footer-form-btn" data-form-btn>
           Subscribe
           <svg class="button-icon" width="24" height="24">
             <use href="./img/icons.svg#icon-send"></use>
