@@ -3,9 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Web Studio</title>
     <script type="module" crossorigin src="/web-studio/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/web-studio/assets/index-Co9AtUkK.css">
+    <link rel="stylesheet" crossorigin href="/web-studio/assets/index-DozqkDh8.css">
   </head>
   <body>
     <header class="header-section" id="header">
@@ -41,7 +48,7 @@
         </li>
       </ul>
     </address>
-    <button class="header-burger-menu" type="button">
+    <button class="header-burger-menu-btn" type="button">
       <svg class="header-mobile-menu-icon" width="24" height="24">
         <use href="/web-studio/assets/icons-BrSR1ORp.svg#icon-menu"></use>
       </svg>
@@ -56,7 +63,9 @@
     <h1 class="hero-title text-centered">
       Effective Solutions for Your Business
     </h1>
-    <button type="button" class="button button-text">Order Service</button>
+    <button type="button" class="button button-text" data-order-btn>
+      Order Service
+    </button>
   </div>
 </section>
 
@@ -711,14 +720,18 @@
     </div>
     <div class="footer-form-wrapper">
       <p class="footer-text-color">Subscribe</p>
+
       <form class="footer-form">
-        <input
-          type="email"
-          name="email"
-          placeholder="E-mail"
-          class="footer-form-input"
-        />
-        <button type="submit" class="footer-form-btn">
+        <div class="footer-form-input-wrapper">
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            class="footer-form-input"
+          />
+          <p class="error-message"></p>
+        </div>
+        <button type="submit" class="footer-form-btn" data-form-btn>
           Subscribe
           <svg class="button-icon" width="24" height="24">
             <use href="/web-studio/assets/icons-BrSR1ORp.svg#icon-send"></use>
@@ -731,7 +744,7 @@
 
     <div class="overlay" id="modal">
   <div class="modal">
-    <button class="close-modal-btn" type="button">
+    <button class="close-btn" type="button">
       <svg class="close-icon" width="8" height="8">
         <use href="/web-studio/assets/icons-BrSR1ORp.svg#icon-close"></use>
       </svg>
@@ -745,38 +758,63 @@
           <div class="modal-form-field">
             <label class="modal-label" for="name">Name </label>
             <div class="modal-input-wrap">
-              <input class="modal-input" type="text" name="name" id="name" />
+              <input
+                class="modal-input"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Alice"
+              />
+
               <svg class="input-icon" width="18" height="24">
                 <use href="/web-studio/assets/icons-BrSR1ORp.svg#icon-person"></use>
               </svg>
             </div>
+            <p class="error-message"></p>
           </div>
           <div class="modal-form-field">
             <label class="modal-label" for="phone">Phone</label>
             <div class="modal-input-wrap">
-              <input class="modal-input" type="tel" name="tel" id="phone" />
+              <input
+                class="modal-input"
+                type="tel"
+                name="tel"
+                id="phone"
+                placeholder="+380501234567"
+              />
+
               <svg class="input-icon" width="18" height="24">
                 <use href="/web-studio/assets/icons-BrSR1ORp.svg#icon-phone"></use>
               </svg>
             </div>
+            <p class="error-message"></p>
           </div>
           <div class="modal-form-field">
             <label class="modal-label" for="email">Email </label>
             <div class="modal-input-wrap">
-              <input class="modal-input" type="email" name="email" id="email" />
+              <input
+                class="modal-input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="test@gmail.com"
+              />
+
               <svg class="input-icon" width="18" height="24">
                 <use href="/web-studio/assets/icons-BrSR1ORp.svg#icon-email"></use>
               </svg>
             </div>
+            <p class="error-message"></p>
           </div>
           <div class="modal-form-field">
             <label class="modal-label" for="comment">Comment</label>
             <textarea
               class="textarea"
               name="comment"
-              placeholder="Text input"
+              placeholder="Write comment"
               id="comment"
             ></textarea>
+            <p class="error-message"></p>
           </div>
         </div>
         <div class="modal-field">
@@ -799,7 +837,11 @@
           </label>
         </div>
       </div>
-      <button class="button button-text modal-button" type="submit">
+      <button
+        class="button button-text modal-button"
+        type="submit"
+        data-form-btn
+      >
         Send
       </button>
     </form>
@@ -808,7 +850,7 @@
 
     <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-container">
-    <button class="close-modal-btn" type="button">
+    <button class="close-btn" type="button">
       <svg class="close-icon" width="8" height="8">
         <use href="/web-studio/assets/icons-BrSR1ORp.svg#icon-close"></use>
       </svg>
@@ -821,7 +863,7 @@
         <li>
           <a class="mobile-menu-link" href="#portfolio">Portfolio</a>
         </li>
-        <li><a class="mobile-menu-link" href="">Contacts</a></li>
+        <li><a class="mobile-menu-link" href="#footer">Contacts</a></li>
       </ul>
     </nav>
     <div class="mobile-menu-bottom">
