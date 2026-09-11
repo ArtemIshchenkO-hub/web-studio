@@ -1,89 +1,49 @@
-import {
-  validateEmail,
-  validatePhone,
-  validateName,
-  validateComment,
-} from './form-validations';
-import { showError, hideError, showAndResetFormData } from './utils';
+import { validateInputs } from './form-validations';
+import { hideError, showError, showAndResetFormData } from './utils';
 
-export function handleInputValidation({ target, currentTarget }) {
-  if (target.name === 'accept') {
-    return;
-  }
+function validateField(element) {
+  if (element.nodeName === 'BUTTON' || element.type === 'submit') return true;
 
-  const fieldContainer =
-    target.closest('.modal-form-field') ||
-    target.closest('.footer-form-input-wrapper');
+  const { isValid, errorMsg } = validateInputs(element);
 
-  const errorEl = fieldContainer?.querySelector('.error-message');
-  const btn = currentTarget.querySelector('[data-form-btn]');
-
-  if (!errorEl) return;
-
-  let isValid = true;
-  let errorMsg = '';
-
-  switch (target.name) {
-    case 'name':
-      isValid = validateName(target.value.trim());
-      errorMsg = 'Name must be at least 3 letters';
-      break;
-    case 'tel':
-      isValid = validatePhone(target.value.trim());
-      errorMsg = 'Format: +380XXXXXXXXX';
-      break;
-    case 'email':
-      isValid = validateEmail(target.value.trim());
-      errorMsg = 'Please enter a valid email';
-      break;
-    case 'comment':
-      isValid = validateComment(target.value.trim());
-      errorMsg = 'Comment must be longer than 16 symbols';
-      break;
-  }
-
-  if (!isValid && target.value.trim() !== '') {
-    showError({ input: target, errorEl, btn, errorMsg });
+  if (!isValid) {
+    showError(element, errorMsg);
   } else {
-    hideError({ input: target, errorEl, btn });
+    hideError(element);
   }
+
+  return isValid;
 }
 
-export function handleFooterSubmit(event) {
-  event.preventDefault();
-  const currentTarget = event.currentTarget;
+export function handleInputValidation({ target }) {
+  if (target.nodeName === 'BUTTON') return;
 
-  const email = currentTarget.elements.email.value.trim();
+  validateField(target);
+}
 
-  if (!validateEmail(email)) {
-    return;
-  }
+export function focusInputHandler({ target }) {
+  if (target.nodeName === 'BUTTON') return;
 
-  const formData = { email };
-  showAndResetFormData(currentTarget, formData);
+  hideError(target);
 }
 
 export function handleModalSubmit(event) {
   event.preventDefault();
   const form = event.currentTarget;
-  const { name, tel, email, comment, accept } = form.elements;
 
-  const isFormValid =
-    validateName(name.value.trim()) &&
-    validatePhone(tel.value.trim()) &&
-    validateEmail(email.value.trim()) &&
-    validateComment(comment.value.trim());
+  const elements = [...form.elements].filter(
+    el => el.nodeName !== 'BUTTON' && el.type !== 'submit'
+  );
 
-  if (!isFormValid) {
-    alert('Please fill all fields correctly');
-    return;
-  }
+  let isValid = true;
+  elements.forEach(element => {
+    const isFieldValid = validateField(element);
+    if (!isFieldValid) isValid = false;
+  });
 
-  if (!accept.checked) {
-    alert('Please check a terms');
-    return;
-  }
+  if (!isValid) return;
 
+  const { name, tel, email, comment } = form.elements;
   const formData = {
     name: name.value.trim(),
     phone: tel.value.trim(),
@@ -91,5 +51,17 @@ export function handleModalSubmit(event) {
     comment: comment.value.trim(),
   };
 
+  showAndResetFormData(form, formData);
+}
+
+export function handleFooterSubmit(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const emailInput = form.elements.email;
+
+  const isValid = validateField(emailInput);
+  if (!isValid) return;
+
+  const formData = { email: emailInput.value.trim() };
   showAndResetFormData(form, formData);
 }
