@@ -76,8 +76,12 @@
     border-radius: 0.125rem;
     background-color: var(--ocean);
     opacity: 0;
+    transform-origin: center;
+    transform: scaleX(0);
 
-    transition: opacity var(--transition-duration) var(--timing-function);
+    transition:
+      opacity var(--transition-duration) var(--timing-function),
+      transform var(--transition-duration) var(--timing-function);
   }
 
   .header-nav-link:hover::after,
@@ -87,6 +91,7 @@
 
   .header-nav-link.active::after {
     opacity: 1;
+    transform: scaleX(1);
   }
 
   .header-contacts-list {
