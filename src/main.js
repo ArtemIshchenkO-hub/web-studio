@@ -25,4 +25,4 @@ refs.modalForm.addEventListener('focusout', handleInputValidation);
 refs.modalForm.addEventListener('focusin', focusInputHandler);
 refs.modalForm.addEventListener('submit', handleModalSubmit);
 
-// window.addEventListener('scroll', animateHeader, { passive: true });
+window.addEventListener('scroll', animateHeader, { passive: true });
