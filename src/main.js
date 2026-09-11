@@ -6,7 +6,11 @@ import {
   handleFooterSubmit,
   handleInputValidation,
   handleModalSubmit,
-} from './js/form-handlers';
+} from './js/form/form-handlers';
+import { animateHeader } from './js/header/header';
+import { initActiveMenu } from './js/header/active-menu';
+
+initActiveMenu();
 
 refs.burgerMenuBtn.addEventListener('click', openMenu);
 refs.mobileMenu.addEventListener('click', closeMenu);
@@ -20,3 +24,5 @@ refs.footerForm.addEventListener('submit', handleFooterSubmit);
 refs.modalForm.addEventListener('focusout', handleInputValidation);
 refs.modalForm.addEventListener('focusin', focusInputHandler);
 refs.modalForm.addEventListener('submit', handleModalSubmit);
+
+// window.addEventListener('scroll', animateHeader, { passive: true });

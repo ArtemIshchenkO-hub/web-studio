@@ -1,5 +1,5 @@
 import { validateInputs } from './form-validations';
-import { hideError, showError, showAndResetFormData } from './utils';
+import { hideError, showError, showAndResetFormData } from '../utils';
 
 function validateField(element) {
   if (element.nodeName === 'BUTTON' || element.type === 'submit') return true;
