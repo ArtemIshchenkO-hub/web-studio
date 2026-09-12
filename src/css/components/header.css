@@ -10,7 +10,7 @@
   z-index: 1;
 
   background-color: var(--white);
-  transition: transform var(--transition-duration) var(--timing-function);
+  transition: transform 0.7s var(--timing-function);
 }
 
 .header-section.is-hidden {
