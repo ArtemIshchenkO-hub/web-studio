@@ -1,5 +1,7 @@
 .error-message {
-  margin-top: 0.5rem;
+  position: absolute;
+  left: 0;
+  top: 102%;
 
   font-size: 0.75rem;
   font-weight: 400;
