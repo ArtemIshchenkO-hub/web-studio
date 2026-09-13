@@ -1,27 +1,26 @@
 import { refs } from '../refs';
 
-export function initActiveMenu() {
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+function activeMenuObserver(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const activeId = entry.target.id;
+      const activeLink = document.querySelector(
+        `.header-nav-link[href="#${activeId}"]`
+      );
 
-        refs.menuLinks.forEach(link => {
-          link.classList.toggle(
-            'active',
-            link.getAttribute('href') === `#${entry.target.id}`
-          );
-        });
-      });
-    },
-    {
-      rootMargin: '-20% 0px -20% 0px',
+      if (activeLink) {
+        refs.menuLinks.forEach(link => link.classList.remove('active'));
+        activeLink.classList.add('active');
+      }
     }
-  );
-
-  refs.sections.forEach(section => {
-    observer.observe(section);
   });
+}
+
+export function initActiveMenu() {
+  const observer = new IntersectionObserver(activeMenuObserver, {
+    rootMargin: '-30% 0px -50% 0px',
+    threshold: 0,
+  });
+
+  refs.sections.forEach(section => observer.observe(section));
 }
