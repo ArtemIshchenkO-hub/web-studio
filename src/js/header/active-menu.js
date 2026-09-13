@@ -11,6 +11,8 @@ function activeMenuObserver(entries) {
       if (activeLink) {
         refs.menuLinks.forEach(link => link.classList.remove('active'));
         activeLink.classList.add('active');
+      } else {
+        if (activeLink) activeLink.classList.remove('active');
       }
     }
   });
