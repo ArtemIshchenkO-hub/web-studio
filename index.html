@@ -747,13 +747,14 @@
     <div class="footer-form-wrapper">
       <p class="footer-text-color">Subscribe</p>
 
-      <form class="footer-form">
+      <form class="footer-form" novalidate>
         <div class="footer-form-input-wrapper">
           <input
             type="email"
             name="email"
             placeholder="E-mail"
             class="footer-form-input"
+            required
           />
           <p class="error-message"></p>
         </div>
@@ -778,7 +779,7 @@
     <p class="modal-title text-centered">
       Leave your contacts and we will call you back
     </p>
-    <form class="modal-form">
+    <form class="modal-form" novalidate>
       <div class="modal-form-wrap">
         <div class="modal-form-fields">
           <div class="modal-form-field">
@@ -790,6 +791,7 @@
                 name="name"
                 id="name"
                 placeholder="Alice"
+                required
               />
 
               <svg class="input-icon" width="18" height="24">
@@ -807,6 +809,7 @@
                 name="tel"
                 id="phone"
                 placeholder="+380501234567"
+                required
               />
 
               <svg class="input-icon" width="18" height="24">
@@ -824,6 +827,7 @@
                 name="email"
                 id="email"
                 placeholder="test@gmail.com"
+                required
               />
 
               <svg class="input-icon" width="18" height="24">
@@ -839,6 +843,7 @@
               name="comment"
               placeholder="Write comment"
               id="comment"
+              required
             ></textarea>
             <p class="error-message"></p>
           </div>
@@ -849,6 +854,7 @@
             type="checkbox"
             name="accept"
             id="accept"
+            required
           />
           <label class="checkbox-label" for="accept">
             <span class="checkbox-custom">
