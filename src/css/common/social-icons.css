@@ -1,15 +1,11 @@
-.social-icon {
-  fill: var(--cloud);
-}
-
 .social-icon-wpapper {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  width: 40px;
+  width: 2.5rem;
   aspect-ratio: 1;
-  border-radius: 40px;
+  border-radius: 2.5rem;
 
   background-color: var(--iris);
   transition: background-color var(--transition-duration) var(--timing-function);
@@ -23,4 +19,10 @@
 .social-icon-wpapper.hover-green:hover,
 .social-icon-wpapper.hover-green:focus {
   background-color: var(--green);
+}
+
+.social-icon {
+  fill: var(--cloud);
+  width: 1.5rem;
+  aspect-ratio: 1;
 }

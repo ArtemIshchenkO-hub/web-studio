@@ -26,12 +26,17 @@
   max-width: 767px;
 }
 
+.header-mobile-menu-icon {
+  width: 1.5rem;
+  aspect-ratio: 1;
+}
+
 .header-contacts-list,
 .header-nav-list {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
   .header-section .container {
     padding: 0 16px;
     max-width: 1158px;
@@ -119,7 +124,7 @@
   }
 }
 
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 72.375rem) {
   .header-section .container {
     padding: 0 15px;
     max-width: 1440px;

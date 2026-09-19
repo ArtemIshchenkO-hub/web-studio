@@ -66,7 +66,7 @@
   border-right: 1px solid var(--cornflower);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
   .portfolio-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -78,7 +78,7 @@
   }
 }
 
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 72.375rem) {
   .portfolio-list {
     gap: 3rem 1.5rem;
   }

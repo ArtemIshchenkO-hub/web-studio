@@ -24,7 +24,7 @@
   font-weight: 500;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
   .features-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -40,7 +40,7 @@
   }
 }
 
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 72.375rem) {
   .features-list {
     gap: 1.5rem;
   }
@@ -68,5 +68,16 @@
     background-color: var(--cloud);
     border: 1px solid var(--light-slate);
     border-radius: var(--border-radius);
+  }
+
+  .feature-icons {
+    width: 4rem;
+    aspect-ratio: 1;
+  }
+}
+
+@media screen and (min-width: 1750px) {
+  .features-item {
+    flex-basis: calc((100% - 4.5rem) / 2);
   }
 }
