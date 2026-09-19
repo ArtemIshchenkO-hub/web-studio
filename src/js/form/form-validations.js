@@ -1,6 +1,7 @@
 const phoneRegex = /^\+380\d{9}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const nameRegex = /^[A-Za-zА-Яа-яЇїІіЄєҐґ]+$/;
+const nameRegex =
+  /^[A-Za-zА-Яа-яЇїІіЄєҐґ'’-]+(?: [A-Za-zА-Яа-яЇїІіЄєҐґ'’-]+)*$/;
 
 function validateEmail(value) {
   return emailRegex.test(value);
@@ -11,7 +12,7 @@ function validatePhone(value) {
 }
 
 function validateName(value) {
-  return value.length > 2 && nameRegex.test(value);
+  return value.length >= 3 && nameRegex.test(value);
 }
 
 function validateComment(value) {
@@ -19,34 +20,48 @@ function validateComment(value) {
 }
 
 export function validateInputs(element) {
-  let isValid = true;
-  let errorMsg = '';
+  const value = element.value.trim();
+
+  let validator;
+  let errorMsg;
+  let isValid;
 
   switch (element.name) {
     case 'name':
-      isValid = validateName(element.value.trim());
-      errorMsg = '*Name must be at least 3 letters';
+      validator = validateName;
+      errorMsg = 'Name must be at least 3 letters';
       break;
     case 'tel':
-      isValid = validatePhone(element.value.trim());
-      errorMsg = '*Format: +380XXXXXXXXX';
+      validator = validatePhone;
+      errorMsg = 'Format: +380XXXXXXXXX';
       break;
     case 'email':
-      isValid = validateEmail(element.value.trim());
-      errorMsg = '*Please enter a valid email';
+      validator = validateEmail;
+      errorMsg = 'Please enter a valid email';
       break;
     case 'comment':
-      isValid = validateComment(element.value.trim());
-      errorMsg = '*Comment must be longer than 16 symbols';
+      validator = validateComment;
+      errorMsg = 'Comment must be longer than 16 symbols';
       break;
     case 'accept':
       isValid = element.checked;
-      errorMsg = '*Please check the terms';
-      break;
+
+      return {
+        isValid,
+        errorMsg: isValid ? '' : 'Please check the terms',
+      };
+
+    default:
+      return {
+        isValid: true,
+        errorMsg: '',
+      };
   }
+
+  isValid = validator(value);
 
   return {
     isValid,
-    errorMsg,
+    errorMsg: isValid ? '' : errorMsg,
   };
 }
